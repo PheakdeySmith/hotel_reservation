@@ -19,8 +19,13 @@ class CustomerController extends Controller
 
     public function create()
     {
-        $response = Http::get('https://restcountries.com/v3.1/all');
-        $countries = collect($response->json())->pluck('name.common')->sort();
+        $filePath = public_path('assets/js/restcountries.json');
+
+        if (file_exists($filePath)) {
+            $countries = collect(json_decode(file_get_contents($filePath), true))->pluck('name.common')->sort();
+        } else {
+            $countries = collect();
+        }
         $customerTypes = CustomerType::all();
 
         return view('admin.customers.customer.create', compact('countries', 'customerTypes'));
@@ -58,8 +63,13 @@ class CustomerController extends Controller
     {
         try {
             $data['customers'] = Customer::findOrFail($id);
-            $response = Http::get('https://restcountries.com/v3.1/all');
-            $data['countries'] = collect($response->json())->pluck('name.common')->sort();
+            $filePath = public_path('assets/js/restcountries.json');
+
+            if (file_exists($filePath)) {
+                $data['countries'] = collect(json_decode(file_get_contents($filePath), true))->pluck('name.common')->sort();
+            } else {
+                $data['countries'] = collect();
+            }
             $data['customerType'] = CustomerType::all();
 
             return view('admin.customers.customer.edit', $data);
