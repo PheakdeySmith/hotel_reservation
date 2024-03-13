@@ -54,9 +54,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
     // Customer Type Routes
-    Route::get('/admin/customertype/index', [CustomerTypeController::class, 'index'])->name('admin.customertype.index');
+    Route::get('/admin/customertype', [CustomerTypeController::class, 'index'])->name('admin.customertype.index');
     Route::get('/admin/customertype/create', [CustomerTypeController::class, 'create'])->name('admin.customertype.create');
-    Route::post('/admin/customertype/index', [CustomerTypeController::class, 'store'])->name('admin.customertype.store');
+    Route::post('/admin/customertype', [CustomerTypeController::class, 'store'])->name('admin.customertype.store');
     Route::get('/admin/customertype/edit/{id}', [CustomerTypeController::class, 'edit'])->name('admin.customertype.edit');
     Route::post('/admin/customertype/update/{id}', [CustomerTypeController::class, 'update'])->name('admin.customertype.update');
     Route::delete('/admin/customertype/delete/{id}', [CustomerTypeController::class, 'destroy'])->name('admin.customertype.destroy');
@@ -64,7 +64,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
     // Room Routes
-    Route::get('/admin/room/index', [RoomController::class, 'index'])->name('admin.room.index');
+    Route::get('/admin/room/table', [RoomController::class, 'index'])->name('admin.room.index');
     Route::get('/admin/room/create', [RoomController::class, 'create'])->name('admin.room.create');
     Route::post('/admin/room/index', [RoomController::class, 'store'])->name('admin.room.store');
     Route::get('/admin/room/edit/{id}', [RoomController::class, 'edit'])->name('admin.room.edit');
@@ -74,9 +74,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
     // Room Type Routes
-    Route::get('/admin/roomtype/index', [RoomTypeController::class, 'index'])->name('admin.roomtype.index');
+    Route::get('/admin/roomtype', [RoomTypeController::class, 'index'])->name('admin.roomtype.index');
     Route::get('/admin/roomtype/create', [RoomTypeController::class, 'create'])->name('admin.roomtype.create');
-    Route::post('/admin/roomtype/index', [RoomTypeController::class, 'store'])->name('admin.roomtype.store');
+    Route::post('/admin/roomtype', [RoomTypeController::class, 'store'])->name('admin.roomtype.store');
     Route::get('/admin/roomtype/edit/{id}', [RoomTypeController::class, 'edit'])->name('admin.roomtype.edit');
     Route::post('/admin/roomtype/update/{id}', [RoomTypeController::class, 'update'])->name('admin.roomtype.update');
     Route::delete('/admin/roomtype/delete/{id}', [RoomTypeController::class, 'destroy'])->name('admin.roomtype.destroy');
