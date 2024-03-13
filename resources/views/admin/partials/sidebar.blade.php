@@ -29,10 +29,10 @@
                 <div class="collapse" id="customerPages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.customertype.index') }}" class="nav-link{{ request()->routeIs('admin.customertype.index') ? ' active' : '' }}">Customer Type</a>
+                            <a href="{{ route('admin.customertype.index') }}" class="nav-link">Customer Type</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.customer.index') }}" class="nav-link{{ request()->routeIs('admin.customer.index') ? ' active' : '' }}">Customer Table</a>
+                            <a href="{{ route('admin.customer.index') }}" class="">Customer Table</a>
                         </li>
                     </ul>
                 </div>
@@ -47,7 +47,7 @@
                 <div class="collapse" id="roomPages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Room Type</a>
+                            <a href="{{ route('admin.roomtype.index') }}" class="nav-link">Room Type</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link">Room Table</a>

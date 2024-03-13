@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'customer_id';
+
+    protected $fillable = [
+        'room_number',
+        'roomtype_id',
+        'room_name',
+    ];
+
+    public function roomType()
+    {
+        return $this->belongsTo(RoomType::class, 'roomtype_id', 'roomtype_id');
+    }
 }
