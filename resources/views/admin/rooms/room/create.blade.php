@@ -10,61 +10,23 @@
                 <form id="roomForm" class="form-inline" action="{{ route('admin.room.store') }}" method="post">
                     @csrf
                     <div class="mb-3 row">
-                        <div class="col-md-12">
-                            <label for="roomCode" class="form-label">Code ID</label>
-                            <input id="roomCode" class="form-control" name="room_code" type="text" value="CUST-">
+                        <div class="col-md-6">
+                            <label for="room_number" class="form-label">Room Number</label>
+                            <input id="room_number" class="form-control" name="room_number" type="text" value="RN-0">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="room_name" class="form-label">Room Name</label>
+                            <input id="room_name" class="form-control" name="room_name" type="text">
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <div class="col-md-6">
-                            <label for="roomName" class="form-label">Name</label>
-                            <input id="roomName" class="form-control" name="room_name" type="text">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="roomPhone" class="form-label">Phone Number</label>
-                            <input id="roomPhone" class="form-control" name="phone" type="tel">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="form-group col-md-4">
-                            <label for="roomType">Type</label>
-                            <select id="roomType" class="form-control" name="roomtype_id">
+                        <div class="form-group col-md-12 mb-3">
+                            <label for="roomtype_id" class="mb-2">Type</label>
+                            <select id="roomtype_id" class="form-control" name="roomtype_id">
                                 <option selected disabled value="">Choose...</option>
                                 @foreach ($room_types as $item)
                                     <option value="{{ $item->roomtype_id }}">{{ $item->roomtype_name }}</option>
                                 @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="roomDob">Date of Birth</label>
-                            <div class="input-group flatpickr" id="flatpickr-dob">
-                                <input type="text" class="form-control" id="roomDob" name="dob">
-                                <span class="input-group-text input-group-addon" data-toggle><i data-feather="calendar"></i></span>
-                            </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label class="form-label">Gender</label>
-                            <div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" class="form-check-input" name="sex" id="genderMale" value="M">
-                                    <label class="form-check-label" for="genderMale">Male</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input type="radio" class="form-check-input" name="sex" id="genderFemale" value="F">
-                                    <label class="form-check-label" for="genderFemale">Female</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <div class="form-group col-md-8">
-                            <label for="roomPassport">Passport Number</label>
-                            <input type="text" class="form-control" id="roomPassport" name="passportnumber">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="roomCountry">Country</label>
-                            <select id="roomCountry" class="form-control" name="country">
-                                <option selected disabled value="">Choose...</option>
                             </select>
                         </div>
                     </div>

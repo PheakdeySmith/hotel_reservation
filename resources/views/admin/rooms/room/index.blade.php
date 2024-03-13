@@ -3,7 +3,7 @@
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Tables</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Customer Table</li>
+            <li class="breadcrumb-item active" aria-current="page">Room Table</li>
         </ol>
     </nav>
 
@@ -11,10 +11,10 @@
         <div class="col-md-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h6 class="card-title">Customer lists</h6>
+                    <h6 class="card-title">Room lists</h6>
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div>
-                            <a href="{{ route('admin.customer.create') }}" class="btn btn-primary">New Customer</a>
+                            <a href="{{ route('admin.room.create') }}" class="btn btn-primary">New Room</a>
                         </div>
                         <div class="input-group" style="width: 300px;">
                             <input type="text" class="form-control" placeholder="Search..." aria-label="Search"
@@ -30,37 +30,27 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Code</th>
-                                    <th>Sex</th>
-                                    <th>Date of Birth</th>
-                                    <th>Phone</th>
-                                    <th>Passport Number</th>
-                                    <th>Country</th>
+                                    <th>Room Number</th>
+                                    <th>Room Type</th>
+                                    <th>Room Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($customers as $item)
+                                @foreach ($rooms as $item)
                                     <tr>
-                                        <td>{{ $item->customer_id }}</td>
-                                        <td>{{ $item->customer_name }}</td>
-                                        <td>{{ $item->customerType->customertype_name }}</td>
-                                        <td>{{ $item->customer_code }}</td>
-                                        <td>{{ $item->sex }}</td>
-                                        <td>{{ $item->dob }}</td>
-                                        <td>{{ $item->phone }}</td>
-                                        <td>{{ $item->passportnumber }}</td>
-                                        <td>{{ $item->country }}</td>
+                                        <td>{{ $item->room_id }}</td>
+                                        <td>{{ $item->room_number }}</td>
+                                        <td>{{ $item->roomType->roomtype_name }}</td>
+                                        <td>{{ $item->room_name }}</td>
                                         <td>
-                                            <form action="{{ route('admin.customer.destroy', $item->customer_id) }}"
+                                            <form action="{{ route('admin.room.destroy', $item->room_id) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
 
                                                 <a class="btn btn-primary"
-                                                    href="{{ route('admin.customer.edit', $item->customer_id) }}">Edit</a>
+                                                    href="{{ route('admin.room.edit', $item->room_id) }}">Edit</a>
                                                 <button type="submit" class="btn btn-danger"
                                                     onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
                                             </form>

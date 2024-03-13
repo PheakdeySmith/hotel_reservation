@@ -50,7 +50,7 @@
                             <a href="{{ route('admin.roomtype.index') }}" class="nav-link">Room Type</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Room Table</a>
+                            <a href="{{ route('admin.room.index') }}" class="nav-link">Room Table</a>
                         </li>
                     </ul>
                 </div>

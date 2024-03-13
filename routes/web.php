@@ -65,7 +65,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     // Room Routes
     Route::get('/admin/room/index', [RoomController::class, 'index'])->name('admin.room.index');
-    Route::get('/admin/room/create', [RoomController::class, 'create'])->name('name.room.create');
+    Route::get('/admin/room/create', [RoomController::class, 'create'])->name('admin.room.create');
     Route::post('/admin/room/index', [RoomController::class, 'store'])->name('admin.room.store');
     Route::get('/admin/room/edit/{id}', [RoomController::class, 'edit'])->name('admin.room.edit');
     Route::post('/admin/room/update/{id}', [RoomController::class, 'update'])->name('admin.room.update');
