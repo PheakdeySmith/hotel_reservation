@@ -8,6 +8,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RoomTypeController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\CustomerTypeController;
 
 /*
@@ -40,7 +41,6 @@ require __DIR__.'/auth.php';
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
-    Route::get('/admin/reservation', [AdminController::class, 'AdminReservation'])->name('admin.reservation');
 
 
     // Customer Routes
@@ -82,6 +82,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('/admin/roomtype/delete/{id}', [RoomTypeController::class, 'destroy'])->name('admin.roomtype.destroy');
     // End Room Type Routes
 
+
+    // Reservation Routes
+    Route::get('/admin/reservation/list', [ReservationController::class, 'list'])->name('admin.reservation.list');
+    Route::resource('admin/reservation', ReservationController::class);
+    // End Reservation Routes
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

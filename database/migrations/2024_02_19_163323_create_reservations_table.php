@@ -14,14 +14,15 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id('reservation_id');
             $table->unsignedBigInteger('customer_id');
-            $table->date('checkindate');
-            $table->integer('is_checkin');
-            $table->integer('numberofdays');
-            $table->integer('numberofadults');
-            $table->integer('numberofchildrens');
-            $table->text('description');
-            $table->date('checkoutdate');
-            $table->integer('is_checkout');
+            $table->date('check_in_date');
+            $table->boolean('is_checked_in')->default(false);
+            $table->integer('number_of_days');
+            $table->integer('number_of_adults');
+            $table->integer('number_of_children');
+            $table->text('description')->nullable();
+            $table->date('check_out_date')->nullable();
+            $table->boolean('is_checked_out')->default(false);
+            $table->string('category');
             $table->timestamps();
 
             $table->foreign('customer_id')

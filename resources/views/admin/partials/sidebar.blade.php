@@ -57,7 +57,7 @@
             </li>
             <li class="nav-item nav-category">Transaction</li>
             <li class="nav-item">
-                <a href="{{ route('admin.reservation') }}" class="nav-link {{ request()->routeIs('admin.reservation') ? 'active' : '' }}">
+                <a href="{{ route('reservation.index') }}" class="nav-link {{ request()->routeIs('reservation.index') ? 'active' : '' }}">
                     <i class="link-icon" data-feather="book-open"></i>
                     <span class="link-title">Reservation</span>
                 </a>
