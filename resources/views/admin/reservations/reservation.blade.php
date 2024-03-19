@@ -1,19 +1,27 @@
 @extends('admin.admin_dashboard')
 @section('content')
-<!-- Plugin css for this page -->
-<link rel="stylesheet" href="{{ asset('assets') }}/vendors/fullcalendar/main.min.css">
-<!-- End plugin css for this page -->
+ <!-- Plugin css for this page -->
+ <link rel="stylesheet" href="{{ asset('assets') }}/vendors/fullcalendar/main.min.css">
+ <!-- End plugin css for this page -->
 
-<!-- Layout styles -->
-<link rel="stylesheet" href="{{ asset('assets') }}/css/demo2/style.css">
-<!-- End layout styles -->
-<link rel="stylesheet" href="../../../assets/vendors/flatpickr/flatpickr.min.css">
-<link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- inject:css -->
-<link rel="stylesheet" href="{{ asset('assets') }}/fonts/feather-font/css/iconfont.css">
-<link rel="stylesheet" href="{{ asset('assets') }}/vendors/flag-icon-css/css/flag-icon.min.css">
-<!-- endinject -->
+ <!-- Layout styles -->
+ <link rel="stylesheet" href="{{ asset('assets') }}/css/demo2/style.css">
+ <!-- End layout styles -->
+
+ <!-- Flatpickr CSS -->
+ <link rel="stylesheet" href="{{ asset('assets') }}/vendors/flatpickr/flatpickr.min.css">
+
+ <!-- Bootstrap Icons CSS -->
+ <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+
+ <!-- Izitoast CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+ <!-- Additional CSS -->
+ <!-- inject:css -->
+ <link rel="stylesheet" href="{{ asset('assets') }}/fonts/feather-font/css/iconfont.css">
+ <link rel="stylesheet" href="{{ asset('assets') }}/vendors/flag-icon-css/css/flag-icon.min.css">
+ <!-- endinject -->
 
 <div class="row">
     <div class="col-md-12">
@@ -69,25 +77,21 @@
 </div>
 
 
-<!-- core:js -->
+<!-- Core JS -->
 <script src="{{ asset('assets') }}/vendors/core/core.js"></script>
-<script src="{{ asset('assets') }}/vendors/flatpickr/flatpickr.min.js"></script>
-<!-- endinject -->
+<!-- End Core JS -->
 
-<!-- Plugin js for this page -->
+<!-- Plugin JS for this page -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ asset('assets') }}/vendors/moment/moment.min.js"></script>
 <script src="{{ asset('assets') }}/vendors/fullcalendar/main.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{ asset('assets') }}/vendors/flatpickr/flatpickr.min.js"></script>
+<!-- End Plugin JS -->
+
+<!-- Custom JS for this page -->
+<script src="{{ asset('assets') }}/js/fullcalendar.js"></script>
 <script src="{{ asset('assets') }}/js/flatpickr.js"></script>
-<!-- End plugin js for this page -->
-
-
-<!-- Custom js for this page -->
-{{-- <script src="{{ asset('assets') }}/js/fullcalendar.js"></script> --}}
-<!-- End custom js for this page -->
-<!-- core:js -->
-<!-- endinject -->
 
 <script>
 
@@ -111,9 +115,9 @@
                     success: function (res) {
                         modal.html(res);
                         modal.modal('show');
-                        $('.datepicker').datepicker({
-                            todayHighlight: true,
-                            format: 'yyyy-mm-dd'
+                        $('.flatpickr').flatpickr({
+                            dateFormat: "Y-m-d",
+                            enableTime: true,
                         });
 
                         $('#form-action').on('submit', function(e) {
