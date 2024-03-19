@@ -83,10 +83,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // End Room Type Routes
 
 
-    // Reservation Routes
-    Route::get('/admin/reservation/list', [ReservationController::class, 'list'])->name('admin.reservation.list');
-    Route::resource('admin/reservation', ReservationController::class);
-    // End Reservation Routes
+
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -97,3 +94,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 Route::get('/user/login', [UserController::class, 'UserLogin'])->name('user.login');
 
+// Reservation Routes
+Route::get('reservation/list', [ReservationController::class, 'list'])->name('reservation.list');
+Route::resource('reservation', ReservationController::class);
+// End Reservation Routes

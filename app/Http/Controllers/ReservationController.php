@@ -115,6 +115,7 @@ class ReservationController extends Controller
         if ($request->has('delete')) {
             return $this->destroy($reservation);
         }
+
         $reservation->customer_id = $request->customer_id;
         $reservation->check_in_date = $request->check_in_date;
         $reservation->check_out_date = $request->check_out_date;
@@ -126,10 +127,8 @@ class ReservationController extends Controller
 
         $reservation->save();
 
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Save data successfully'
-        ]);
+        // Redirect to the reservation.index route
+        return redirect()->route('reservation.index')->with('success', 'Reservation updated successfully');
     }
 
     /**

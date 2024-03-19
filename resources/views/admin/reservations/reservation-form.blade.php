@@ -8,39 +8,37 @@
         <div class="col-12">
             <div class="mb-3">
                 <label for="form-label">Customers</label>
-                <input type="text" name="customer_id" readonly value="{{ $data->customer_id ?? request()->customer_id }}" class="form-control">
-            </div>
-        </div>
-        <div class="col-6">
-            {{-- <div class="mb-3">
-                <input type="text" name="check_in_date" readonly value="{{ $data->check_in_date ?? request()->check_in_date }}" class="form-control datepicker">
-            </div> --}}
-            <div class="input-group flatpickr mb-3" id="flatpickr-date">
-                <input type="text" class="form-control" placeholder="Select date" data-input  value="{{ $data->check_in_date ?? request()->check_in_date }}">
-                <span class="input-group-text input-group-addon" data-toggle><i data-feather="calendar"></i></span>
+                <input type="text" name="customer_id" value="{{ $data->customer_id ?? request()->customer_id }}" class="form-control">
             </div>
         </div>
         <div class="col-6">
             <div class="mb-3">
-                <input type="text" name="check_out_date" readonly value="{{ $data->check_out_date ?? request()->check_out_date }}" class="form-control datepicker">
+                <label for="form-label">Check In</label>
+                <input type="text" name="check_in_date" value="{{ $data->check_in_date ?? request()->check_in_date }}" class="form-control datepicker">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="form-label">Check Out</label>
+                <input type="text" name="check_out_date" value="{{ $data->check_out_date ?? request()->check_out_date }}" class="form-control datepicker">
             </div>
         </div>
         <div class="col-2">
             <div class="mb-3">
                 <label for="form-label">Days</label>
-                <input type="text" name="number_of_days" readonly value="{{ $data->number_of_days ?? request()->number_of_days }}" class="form-control">
+                <input type="text" name="number_of_days" value="{{ $data->number_of_days ?? request()->number_of_days }}" class="form-control">
             </div>
         </div>
         <div class="col-5">
             <div class="mb-3">
                 <label for="form-label">Adults</label>
-                <input type="text" name="number_of_adults" readonly value="{{ $data->number_of_adults ?? request()->number_of_adults }}" class="form-control">
+                <input type="text" name="number_of_adults" value="{{ $data->number_of_adults ?? request()->number_of_adults }}" class="form-control">
             </div>
         </div>
         <div class="col-5">
             <div class="mb-3">
                 <label for="form-label">Children</label>
-                <input type="text" name="number_of_children" readonly value="{{ $data->number_of_children ?? request()->number_of_children }}" class="form-control">
+                <input type="text" name="number_of_children" value="{{ $data->number_of_children ?? request()->number_of_children }}" class="form-control">
             </div>
         </div>
         <div class="col-12">
