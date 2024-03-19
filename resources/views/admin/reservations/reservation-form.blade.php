@@ -25,19 +25,19 @@
                 <input type="text" name="check_out_date" readonly value="{{ $data->check_out_date ?? request()->check_out_date }}" class="form-control datepicker">
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-2">
             <div class="mb-3">
                 <label for="form-label">Days</label>
                 <input type="text" name="number_of_days" readonly value="{{ $data->number_of_days ?? request()->number_of_days }}" class="form-control">
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-5">
             <div class="mb-3">
                 <label for="form-label">Adults</label>
                 <input type="text" name="number_of_adults" readonly value="{{ $data->number_of_adults ?? request()->number_of_adults }}" class="form-control">
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-5">
             <div class="mb-3">
                 <label for="form-label">Children</label>
                 <input type="text" name="number_of_children" readonly value="{{ $data->number_of_children ?? request()->number_of_children }}" class="form-control">
