@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReservationRequest;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 
@@ -77,17 +78,17 @@ class ReservationController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Reservation $reservation)
     {
-        //
+        return view('admin.reservations.reservation-form', ['data' => $reservation, 'action' => route('reservation.store')]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ReservationRequest $request, Reservation $event)
     {
-        //
+        return $this->update($request, $event);
     }
 
     /**
@@ -109,9 +110,26 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reservation $reservation)
+    public function update(ReservationRequest $request, Reservation $reservation)
     {
-        //
+        if ($request->has('delete')) {
+            return $this->destroy($reservation);
+        }
+        $reservation->customer_id = $request->customer_id;
+        $reservation->check_in_date = $request->check_in_date;
+        $reservation->check_out_date = $request->check_out_date;
+        $reservation->number_of_days = $request->number_of_days;
+        $reservation->number_of_adults = $request->number_of_adults;
+        $reservation->number_of_children = $request->number_of_children;
+        $reservation->description = $request->description;
+        $reservation->category = $request->category;
+
+        $reservation->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Save data successfully'
+        ]);
     }
 
     /**
@@ -119,6 +137,10 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-        //
+        $reservation->delete();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Delete data successfully'
+        ]);
     }
 }
