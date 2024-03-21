@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->id('reservation_id');
+            $table->id();
             $table->unsignedBigInteger('customer_id');
             $table->date('check_in_date');
             $table->boolean('is_checked_in')->default(false);
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('customer_id')
-                ->references('customer_id')
+                ->references('id')
                 ->on('customers')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');

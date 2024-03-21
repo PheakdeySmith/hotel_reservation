@@ -9,7 +9,7 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'customer_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'customer_name',
@@ -26,6 +26,6 @@ class Customer extends Model
 
     public function customerType()
     {
-        return $this->belongsTo(CustomerType::class, 'customertype_id', 'customertype_id');
+        return $this->belongsTo(CustomerType::class, 'customertype_id', 'id');
     }
 }

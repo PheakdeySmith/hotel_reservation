@@ -35,7 +35,7 @@
                             <select id="customerType" class="form-control" name="customertype_id">
                                 <option selected disabled value="">Choose...</option>
                                 @foreach ($customerTypes as $item)
-                                    <option value="{{ $item->customertype_id }}">{{ $item->customertype_name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->customertype_name }}</option>
                                 @endforeach
                             </select>
                         </div>

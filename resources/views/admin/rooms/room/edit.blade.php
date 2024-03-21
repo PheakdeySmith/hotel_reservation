@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">New Room</h4>
-                <form id="roomForm" class="form-inline" action="{{ route('admin.room.update', $rooms->room_id) }}" method="post">
+                <form id="roomForm" class="form-inline" action="{{ route('admin.room.update', $rooms->id) }}" method="post">
                     @csrf
                     <div class="mb-3 row">
                         <div class="col-md-6">
@@ -25,8 +25,7 @@
                             <select id="roomtype_id" class="form-control" name="roomtype_id">
                                 <option selected disabled value="">Choose...</option>
                                 @foreach ($room_types as $item)
-                                    <option value="{{ $item->roomtype_id }}">{{ $item->roomtype_name }}</option>
-                                    <option value="{{ $item->roomtype_id }}" {{ $rooms->roomtype_id == $item->roomtype_id ? 'selected' : '' }}>{{ $item->roomtype_name }}</option>
+                                    <option value="{{ $item->id }}" {{ $rooms->roomtype_id == $item->id ? 'selected' : '' }}>{{ $item->roomtype_name }}</option>
                                 @endforeach
                             </select>
                         </div>

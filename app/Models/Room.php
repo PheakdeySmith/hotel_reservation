@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'room_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'room_number',
@@ -18,6 +18,6 @@ class Room extends Model
 
     public function roomType()
     {
-        return $this->belongsTo(RoomType::class, 'roomtype_id', 'roomtype_id');
+        return $this->belongsTo(RoomType::class, 'roomtype_id', 'id');
     }
 }

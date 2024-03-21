@@ -38,14 +38,14 @@
                         <tbody>
                             @foreach($customer_types as $item)
                                 <tr>
-                                    <td>{{ $item->customertype_id }}</td>
+                                    <td>{{ $item->id }}</td>
                                     <td>{{ $item->customertype_name }}</td>
                                     <td>
-                                        <form action="{{ route('admin.customertype.destroy', $item->customertype_id) }}" method="POST">
+                                        <form action="{{ route('admin.customertype.destroy', $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
 
-                                            <a class="btn btn-primary" href="{{ route('admin.customertype.edit', $item->customertype_id) }}">Edit</a>
+                                            <a class="btn btn-primary" href="{{ route('admin.customertype.edit', $item->id) }}">Edit</a>
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
                                         </form>
                                     </td>

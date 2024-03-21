@@ -44,7 +44,7 @@
                             <tbody>
                                 @foreach ($customers as $item)
                                     <tr>
-                                        <td>{{ $item->customer_id }}</td>
+                                        <td>{{ $item->id }}</td>
                                         <td>{{ $item->customer_name }}</td>
                                         <td>{{ $item->customerType->customertype_name }}</td>
                                         <td>{{ $item->customer_code }}</td>
@@ -54,13 +54,13 @@
                                         <td>{{ $item->passportnumber }}</td>
                                         <td>{{ $item->country }}</td>
                                         <td>
-                                            <form action="{{ route('admin.customer.destroy', $item->customer_id) }}"
+                                            <form action="{{ route('admin.customer.destroy', $item->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
 
                                                 <a class="btn btn-primary"
-                                                    href="{{ route('admin.customer.edit', $item->customer_id) }}">Edit</a>
+                                                    href="{{ route('admin.customer.edit', $item->id) }}">Edit</a>
                                                 <button type="submit" class="btn btn-danger"
                                                     onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
                                             </form>

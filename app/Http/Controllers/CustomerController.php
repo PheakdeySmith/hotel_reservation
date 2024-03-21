@@ -36,7 +36,7 @@ class CustomerController extends Controller
         // Validate the incoming request data
         $request->validate([
             'customer_name' => 'required|string|max:50',
-            'customertype_id' => 'required|exists:customer_types,customertype_id',
+            'customertype_id' => 'required|exists:customer_types,id',
             'customer_code' => 'required|string|max:50',
             'sex' => 'required|string|in:M,F',
             'dob' => 'required|date',

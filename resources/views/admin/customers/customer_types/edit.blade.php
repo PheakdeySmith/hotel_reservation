@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Edit Customer</h4>
-                <form action="{{ route('admin.customertype.update', $customerType->customertype_id) }}" method="post" class="form-inline">
+                <form action="{{ route('admin.customertype.update', $customerType->id) }}" method="post" class="form-inline">
                     @csrf
                     <div class="mb-3 row">
                         <div class="col-md-12">

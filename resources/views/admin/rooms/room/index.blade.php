@@ -39,20 +39,22 @@
                             <tbody>
                                 @foreach ($rooms as $item)
                                     <tr>
-                                        <td>{{ $item->room_id }}</td>
+                                        <td>{{ $item->id }}</td>
                                         <td>{{ $item->room_number }}</td>
                                         <td>{{ $item->roomType->roomtype_name }}</td>
                                         <td>{{ $item->room_name }}</td>
                                         <td>
-                                            <form action="{{ route('admin.room.destroy', $item->room_id) }}"
+                                            <form action="{{ route('admin.room.destroy', $item->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
 
                                                 <a class="btn btn-primary"
-                                                    href="{{ route('admin.room.edit', $item->room_id) }}">Edit</a>
+                                                    href="{{ route('admin.room.edit', $item->id) }}">Edit</a>
                                                 <button type="submit" class="btn btn-danger"
-                                                    onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                                                    onclick="return confirm('Are you sure you want to delete this item?')">
+                                                    Delete
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>

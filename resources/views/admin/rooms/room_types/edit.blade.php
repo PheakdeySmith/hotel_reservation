@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Edit Room Type</h4>
-                <form action="{{ route('admin.roomtype.update', $room_types->roomtype_id) }}" method="post" class="form-inline">
+                <form action="{{ route('admin.roomtype.update', $room_types->id) }}" method="post" class="form-inline">
                     @csrf
                     <div class="mb-3 row">
                         <div class="col-md-12">

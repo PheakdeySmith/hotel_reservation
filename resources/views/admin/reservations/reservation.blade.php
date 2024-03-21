@@ -161,6 +161,32 @@
                     }
                 })
             },
+            eventClick: function ({event}) {
+                $.ajax({
+                    url: `{{ url('reservation') }}/${event.id}/edit`,
+                    success: function (res) {
+                        modal.html(res);
+                        modal.modal('show');
+
+                        $('#form-action').on('submit', function(e) {
+                            e.preventDefault()
+                            const form = this
+                            const formData = new FormData(form)
+                            $.ajax({
+                                url: form.action,
+                                method: form.method,
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function (res) {
+                                    modal.modal('hide')
+                                    calendar.refetchEvents()
+                                }
+                            })
+                        })
+                    }
+                })
+            },
         });
         // Ensure modal is properly initialized
         modal.modal({

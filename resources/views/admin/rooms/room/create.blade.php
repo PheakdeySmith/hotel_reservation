@@ -25,7 +25,7 @@
                             <select id="roomtype_id" class="form-control" name="roomtype_id">
                                 <option selected disabled value="">Choose...</option>
                                 @foreach ($room_types as $item)
-                                    <option value="{{ $item->roomtype_id }}">{{ $item->roomtype_name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->roomtype_name }}</option>
                                 @endforeach
                             </select>
                         </div>

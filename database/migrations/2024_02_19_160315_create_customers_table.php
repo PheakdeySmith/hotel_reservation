@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id('customer_id');
+            $table->id();
             $table->string('customer_name', 50);
             $table->unsignedBigInteger('customertype_id');
             $table->string('customer_code', 50);
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('customertype_id')
-                ->references('customertype_id')
+                ->references('id')
                 ->on('customer_types')
                 ->onDelete('cascade')
                 ->onUpdate('cascade')

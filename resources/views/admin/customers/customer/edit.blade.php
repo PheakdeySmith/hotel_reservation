@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Edit Customer</h4>
-                <form id="customerForm" class="form-inline" action="{{ route('admin.customer.update', $customers->customer_id) }}" method="post">
+                <form id="customerForm" class="form-inline" action="{{ route('admin.customer.update', $customers->id) }}" method="post">
                     @csrf
                     <div class="mb-3 row">
                         <div class="col-md-12">
@@ -34,7 +34,7 @@
                             <label for="customerType">Type</label>
                             <select id="customerType" class="form-control" name="customertype_id">
                                 @foreach ($customerType as $item)
-                                    <option value="{{ $item->customertype_id }}" {{ $customers->customertype_id == $item->customertype_id ? 'selected' : '' }}>{{ $item->customertype_name }}</option>
+                                    <option value="{{ $item->id }}" {{ $customers->customertype_id == $item->id ? 'selected' : '' }}>{{ $item->customertype_name }}</option>
                                 @endforeach
                             </select>
                         </div>
